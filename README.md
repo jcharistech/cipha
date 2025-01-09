@@ -2,7 +2,7 @@
 A simple CLI and Package for Classical Ciphers and Cryptography in Rust
 
 ## Introduction
-`cipha` consist of two main part the `cipha-lib` and  `cipha-cli`.
+`cipha` consist of two main part the `cipha` and  `cipha-cli`.
 
 
 ## Installation

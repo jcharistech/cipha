@@ -10,11 +10,11 @@ use cipha::utils::{alpha2num, atbash_cipher, atbash_decipher, caesar_cipher, mor
 /// It can encode or decode messages using these ciphers.
 /// ### Example Usage
 /// ```bash
-/// cipha encode --cipher rot13 --message "Hello, World!"
-/// cipha encode --cipher caesar --message "Hello, World!" --shift 3
+/// cipha-cli encode --cipher rot13 --message "Hello, World!"
+/// cipha-cli encode --cipher caesar --message "Hello, World!" --shift 3
 /// ```
 #[derive(Debug, StructOpt)]
-#[structopt(name = "cipha", about = "A simple CLI for ciphers and crypto")]
+#[structopt(name = "cipha-cli", about = "A simple CLI for ciphers and crypto")]
 struct Cli {
     /// The subcommand to execute.
     #[structopt(subcommand)]

@@ -19,3 +19,4 @@ assert_cmd = "2.0.16"
 [[bin]]
 name = "cipha-cli"
 path = "src/main.rs"
+# doc = false  # Disable documentation for this binary

@@ -3,15 +3,15 @@ use assert_cmd::Command;
 
 #[test]
 fn test_cli_version_args() {
-    let mut cmd = Command::cargo_bin("cipha").unwrap();
+    let mut cmd = Command::cargo_bin("cipha-cli").unwrap();
     cmd.arg("-V")
-    .assert().success().stdout("cipha 0.1.0\n");
+    .assert().success().stdout("cipha-cli 0.1.0\n");
 }
 
 
 #[test]
 fn test_cli_encode_rot13() {
-    let mut cmd = Command::cargo_bin("cipha").unwrap();
+    let mut cmd = Command::cargo_bin("cipha-cli").unwrap();
     cmd.arg("encode")
         .arg("--cipher")
         .arg("rot13")
@@ -22,7 +22,7 @@ fn test_cli_encode_rot13() {
 
 #[test]
 fn test_cli_encode_caesar() {
-    let mut cmd = Command::cargo_bin("cipha").unwrap();
+    let mut cmd = Command::cargo_bin("cipha-cli").unwrap();
     cmd.arg("encode")
         .arg("--cipher")
         .arg("caesar")
@@ -35,7 +35,7 @@ fn test_cli_encode_caesar() {
 
 #[test]
 fn test_cli_decode_rot13() {
-    let mut cmd = Command::cargo_bin("cipha").unwrap();
+    let mut cmd = Command::cargo_bin("cipha-cli").unwrap();
     cmd.arg("decode")
         .arg("--cipher")
         .arg("rot13")
@@ -46,7 +46,7 @@ fn test_cli_decode_rot13() {
 
 #[test]
 fn test_cli_decode_caesar() {
-    let mut cmd = Command::cargo_bin("cipha").unwrap();
+    let mut cmd = Command::cargo_bin("cipha-cli").unwrap();
     cmd.arg("decode")
         .arg("--cipher")
         .arg("caesar")
