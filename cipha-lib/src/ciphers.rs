@@ -1,11 +1,17 @@
-use std::collections::HashMap;
+/// A simple ROT13 cipher implementation.
+///
+/// ROT13 is a special case of the Caesar cipher, where each letter is shifted 13 positions forward in the alphabet.
 pub struct Rot13Cipher;
 
 impl Rot13Cipher {
+    /// Creates a new instance of the ROT13 cipher.
     pub fn new() -> Self {
         Rot13Cipher
     }
 
+    /// Enciphers a given message using the ROT13 cipher.
+    ///
+    /// This function shifts each letter in the message by 13 positions forward in the alphabet.
     pub fn encipher(&self, message: &str) -> String {
         message.chars().map(|c| {
             match c {
@@ -16,20 +22,30 @@ impl Rot13Cipher {
         }).collect()
     }
 
+    /// Deciphers a given message using the ROT13 cipher.
+    ///
+    /// Since ROT13 is symmetric, this method is identical to `encipher`.
     pub fn decipher(&self, message: &str) -> String {
-        self.encipher(message) // ROT13 is symmetric
+        self.encipher(message)
     }
 }
 
+/// A Caesar cipher implementation with a variable shift.
+///
+/// The Caesar cipher is a type of substitution cipher where each letter in the plaintext is 'shifted' a certain number of places down the alphabet.
 pub struct CaesarCipher {
     shift: u8,
 }
 
 impl CaesarCipher {
+    /// Creates a new instance of the Caesar cipher with the specified shift.
     pub fn new(shift: u8) -> Self {
         CaesarCipher { shift }
     }
 
+    /// Enciphers a given message using the Caesar cipher.
+    ///
+    /// This function shifts each letter in the message by the specified shift.
     pub fn encipher(&self, message: &str) -> String {
         message.chars().map(|c| {
             match c {
@@ -40,6 +56,9 @@ impl CaesarCipher {
         }).collect()
     }
 
+    /// Deciphers a given message using the Caesar cipher.
+    ///
+    /// This function shifts each letter in the message by the reverse of the specified shift.
     pub fn decipher(&self, message: &str) -> String {
         let reverse_shift = 26 - self.shift;
         message.chars().map(|c| {
@@ -52,15 +71,22 @@ impl CaesarCipher {
     }
 }
 
+/// A Vigenere cipher implementation.
+///
+/// The Vigenere cipher is a method of encrypting alphabetic text by using a series of interwoven Caesar ciphers based on the letters of a keyword.
 pub struct VigenereCipher {
     key: String,
 }
 
 impl VigenereCipher {
+    /// Creates a new instance of the Vigenere cipher with the specified key.
     pub fn new(key: &str) -> Self {
         VigenereCipher { key: key.to_ascii_lowercase() }
     }
 
+    /// Enciphers a given plaintext using the Vigenere cipher.
+    ///
+    /// This function uses the provided key to shift each letter in the plaintext.
     pub fn encipher(&self, plaintext: &str) -> String {
         let key_len = self.key.len();
         if key_len == 0 {
@@ -80,6 +106,9 @@ impl VigenereCipher {
         }).collect()
     }
 
+    /// Deciphers a given ciphertext using the Vigenere cipher.
+    ///
+    /// This function uses the provided key to reverse the shift applied during encryption.
     pub fn decipher(&self, ciphertext: &str) -> String {
         let key_len = self.key.len();
         if key_len == 0 {
@@ -100,10 +129,9 @@ impl VigenereCipher {
     }
 }
 
-
-
-
-// Define the Morse code mapping
+/// A Morse code converter.
+///
+/// This struct provides methods to convert text to Morse code and vice versa.
 const MORSE_CODE_MAP: &[(&str, &str)] = &[
     ("A", ".-"), ("B", "-..."), ("C", "-.-."), ("D", "-.."), ("E", "."), ("F", "..-."),
     ("G", "--."), ("H", "...."), ("I", ".."), ("J", ".---"), ("K", "-.-"), ("L", ".-.."),
@@ -121,14 +149,15 @@ const MORSE_CODE_MAP: &[(&str, &str)] = &[
 ];
 
 pub struct MorseCode {
-    morse_code_map: HashMap<String, String>,
-    reverse_morse_code_map: HashMap<String, String>,
+    morse_code_map: std::collections::HashMap<String, String>,
+    reverse_morse_code_map: std::collections::HashMap<String, String>,
 }
 
 impl MorseCode {
+    /// Creates a new instance of the Morse code converter.
     pub fn new() -> Self {
-        let mut morse_code_map = HashMap::new();
-        let mut reverse_morse_code_map = HashMap::new();
+        let mut morse_code_map = std::collections::HashMap::new();
+        let mut reverse_morse_code_map = std::collections::HashMap::new();
 
         for (key, value) in MORSE_CODE_MAP {
             morse_code_map.insert(key.to_string(), value.to_string());
@@ -141,7 +170,7 @@ impl MorseCode {
         }
     }
 
-    // Function to encode a string into Morse code
+    /// Encodes a given text into Morse code.
     pub fn encode(&self, text: &str) -> String {
         let mut encoded = String::new();
 
@@ -155,7 +184,7 @@ impl MorseCode {
         encoded.trim().to_string() // Remove trailing space
     }
 
-    // Function to decode Morse code into a string
+    /// Decodes a given Morse code into text.
     pub fn decode(&self, code: &str) -> String {
         let mut decoded = String::new();
         let code_vec: Vec<&str> = code.split(' ').collect();
@@ -170,14 +199,20 @@ impl MorseCode {
     }
 }
 
+/// An Atbash cipher implementation.
+///
+/// The Atbash cipher is a specific type of monoalphabetic cipher that was originally used to encode the Hebrew alphabet.
 pub struct AtbashCipher;
 
 impl AtbashCipher {
+    /// Creates a new instance of the Atbash cipher.
     pub fn new() -> Self {
         AtbashCipher
     }
 
-    // Function to encipher or decipher a string using the Atbash cipher
+    /// Transforms a given text using the Atbash cipher.
+    ///
+    /// This function reverses the order of the alphabet for each letter in the text.
     pub fn transform(&self, text: &str) -> String {
         text.chars().map(|c| match c {
             'a'..='z' => ('a' as u8 + 25 - (c as u8 - 'a' as u8)) as char,
@@ -186,26 +221,33 @@ impl AtbashCipher {
         }).collect()
     }
 
-    // Function to encipher a string using the Atbash cipher
+    /// Enciphers a given plaintext using the Atbash cipher.
+    ///
+    /// Since the Atbash cipher is symmetric, this method is identical to `decipher`.
     pub fn encipher(&self, plaintext: &str) -> String {
         self.transform(plaintext)
     }
 
-    // Function to decipher a string using the Atbash cipher
+    /// Deciphers a given ciphertext using the Atbash cipher.
+    ///
+    /// Since the Atbash cipher is symmetric, this method is identical to `encipher`.
     pub fn decipher(&self, ciphertext: &str) -> String {
         self.transform(ciphertext)
     }
 }
 
-
+/// An alphabetic to numerical converter.
+///
+/// This struct provides methods to convert alphabetic characters to their corresponding numerical values and vice versa.
 pub struct AlphaNumConverter;
 
 impl AlphaNumConverter {
+    /// Creates a new instance of the alphabetic to numerical converter.
     pub fn new() -> Self {
         AlphaNumConverter
     }
 
-    // Function to convert alphabetic characters to their corresponding numerical values
+    /// Converts alphabetic characters in a given text to their corresponding numerical values.
     pub fn alpha_to_num(&self, text: &str) -> String {
         let mut result = String::new();
 
@@ -224,7 +266,7 @@ impl AlphaNumConverter {
         result.trim().to_string()
     }
 
-    // Function to convert numerical values back to their corresponding alphabetic characters
+    /// Converts numerical values in a given text back to their corresponding alphabetic characters.
     pub fn num_to_alpha(&self, cipher_text: &str) -> String {
         let mut decrypted_text = String::new();
         let mut number_buffer = String::new();
