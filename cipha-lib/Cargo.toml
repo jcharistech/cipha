@@ -2,5 +2,7 @@
 name = "cipha-lib"
 version = "0.1.0"
 edition = "2021"
+authors = ["Jesse JCharis"]
+description = "CLI for classical ciphers"
 
 [dependencies]

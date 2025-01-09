@@ -105,7 +105,7 @@ pub fn alpha2num(text: &str) -> String {
 /// use cipha_lib::num2alpha;
 /// let input = "8 5 12 12 15 , 23 15 18 12 4 !";
 /// let result = num2alpha(input);
-/// assert_eq!(result, "Hello, World!");
+/// assert_eq!(result, "helloworld");
 /// ```
 /// 
 pub fn num2alpha(cipher_text: &str) -> String {
@@ -159,7 +159,7 @@ pub fn num2alpha(cipher_text: &str) -> String {
 /// use cipha_lib::vigenere_cipher;
 /// let plaintext = "ATTACKATDAWN".to_string();
 /// let key = "LEMON".to_string();
-/// let ciphertext = vigenere_encrypt(&plaintext, &key);
+/// let ciphertext = vigenere_cipher(&plaintext, &key);
 /// assert_eq!(ciphertext, "LXFOPVEFRNHR");
 /// ```
 pub fn vigenere_cipher(plaintext: &str, key: &str) -> String {

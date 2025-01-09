@@ -25,8 +25,8 @@ The `cipha-cli` supports two main subcommands: `encode` and `decode`. Here is a 
 cipha encode --help
 ```
 
-```markdown
-# Options
+
+### Options
 
 - `--cipher`: The cipher to use (e.g., rot13, caesar, reverse, gematria, vigenere, morse, atbash).
 - `--message`: The message to encode.
@@ -34,7 +34,7 @@ cipha encode --help
 - `--shift`: Shift value for Caesar cipher (default: 3).
 - `--key`: Key to encrypt by.
 - `--output-file`: Output to a file instead of stdout.
-```
+
 
 #### Example Usage for Encode
 
@@ -54,8 +54,8 @@ cipha encode --cipher reverse --message "Hello, World!"
 cipha decode --help
 ```
 
-```markdown
-# Options
+
+#### Options
 
 - `--cipher`: The cipher to use (e.g., rot13, caesar, reverse, gematria, vigenere, morse, atbash).
 - `--message`: The message to decode.
@@ -63,7 +63,7 @@ cipha decode --help
 - `--shift`: Shift value for Caesar cipher (default: 3).
 - `--key`: Key to decrypt by.
 - `--output-file`: Output to a file instead of stdout.
-```
+
 
 #### Example Usage for Decode
 

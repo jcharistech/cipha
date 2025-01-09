@@ -2,8 +2,8 @@
 A simple CLI and Package for Classical Ciphers and Cryptography in Rust
 
 ## Introduction
-```markdown
-# cipha-lib
+
+## cipha-lib
 
 This crate provides a collection of cryptographic functions, including various ciphers and encoding schemes. It is designed to be easy to use and integrate into Rust projects.
 
@@ -127,32 +127,6 @@ let plaintext = rail_fence_decipher(&ciphertext, rails);
 assert_eq!(plaintext, "WEAREDISCOVEREDSAVEYOURSELF");
 ```
 
-## Testing Code Examples
-
-To ensure that the examples in this README remain valid, you can use the `skeptic` crate to generate doc tests from the code blocks in this file.
-
-Here is an example of how to set it up:
-
-```rust
-// In your build.rs file
-extern crate skeptic;
-
-fn main() {
-    skeptic::generate_doc_tests(&["README.md"]);
-}
-```
-
-And in your `README.md`, mark the examples you want to test with the `skt-template` tag:
-
-
-```rust,skt-template
-let input = "Hello, World!".to_string();
-let output = rot13(input);
-assert_eq!(output, "Uryyb, Jbeyq!");
-```
-
-
-Running `cargo test` will then test these examples and ensure they are correct.
 
 ## Conclusion
 
@@ -161,4 +135,4 @@ The `cipha-lib` crate provides a variety of cryptographic functions that can be 
 
 
 
-There is also a CLI for Cipha available here [Cipha-cli](CLI.md).
+There is also a CLI for Cipha available here [cipha-cli](CLI.md).
