@@ -1,16 +1,18 @@
 //! This is the main module for the cipha-lib crate.
 //! It contains various cipher and crypto functions.
 
+
+
 pub mod ciphers;
 
-use std::collections::HashMap;
-
+pub mod utils {
+    use std::collections::HashMap;
 /// Applies the ROT13 cipher to the input message.
 ///
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::rot13;
+/// use cipha::utils::rot13;
 /// let input = "Hello, World!".to_string();
 /// let output = rot13(input);
 /// assert_eq!(output, "Uryyb, Jbeyq!");
@@ -31,7 +33,7 @@ pub fn rot13(message: String) -> String {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::caesar_cipher;
+/// use cipha::utils::caesar_cipher;
 /// let input = "Hello, World!".to_string();
 /// let shift = 3;
 /// let output = caesar_cipher(input, shift);
@@ -56,7 +58,7 @@ pub fn caesar_cipher(message: String, shift: u8) -> String {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::reverse_cipher;
+/// use cipha::utils::reverse_cipher;
 /// let input = "Hello, World!";
 /// let reversed = reverse_cipher(input);
 /// assert_eq!(reversed, "!dlroW ,olleH");
@@ -73,7 +75,7 @@ pub fn reverse_cipher(message: &str) -> String {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::alpha2num;
+/// use cipha::utils::alpha2num;
 /// let input = "Hello, World!";
 /// let result = alpha2num(input);
 /// assert_eq!(result, "8 5 12 12 15 ,   23 15 18 12 4 !");
@@ -104,7 +106,7 @@ pub fn alpha2num(text: &str) -> String {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::num2alpha;
+/// use cipha::utils::num2alpha;
 /// let input = "8 5 12 12 15 , 23 15 18 12 4 !";
 /// let result = num2alpha(input);
 /// assert_eq!(result, "helloworld");
@@ -158,7 +160,7 @@ pub fn num2alpha(cipher_text: &str) -> String {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::vigenere_cipher;
+/// use cipha::utils::vigenere_cipher;
 /// let plaintext = "ATTACKATDAWN".to_string();
 /// let key = "LEMON".to_string();
 /// let ciphertext = vigenere_cipher(&plaintext, &key);
@@ -266,7 +268,7 @@ pub fn create_reverse_morse_code_map() -> HashMap<String, String> {
 /// # Examples
 ///
 /// ```rust
-/// use cipha_lib::morse_code_cipher;
+/// use cipha::utils::morse_code_cipher;
 /// let input = "HELLO".to_string();
 /// let morse_code = morse_code_cipher(&input);
 /// assert_eq!(morse_code, ".... . .-.. .-.. ---");
@@ -419,10 +421,12 @@ pub fn atbash_decipher(ciphertext: &str) -> String {
         result
     }
 
+}
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    
+    use crate::utils::*;
 
     #[test]
     fn test_rot13() {

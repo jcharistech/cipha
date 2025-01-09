@@ -146,7 +146,6 @@ cipha encode --cipher rot13 --message "Hello, World!" --output-file output.txt
 ```
 
 
-This will execute the tests defined in the `tests` module of the `cipha-cli` crate.
 
 ## Conclusion
 

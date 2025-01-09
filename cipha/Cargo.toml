@@ -1,9 +1,9 @@
 [package]
-name = "cipha-cli"
+name = "cipha"
 version = "0.1.0"
 edition = "2021"
 authors = ["Jesse JCharis"]
-description = "CLI for classical ciphers"
+description = "Library for classical ciphers"
 readme = "README.md"
 homepage = "https://github.com/jcharistech/cipha"
 repository = "https://github.com/jcharistech/cipha"
@@ -12,10 +12,7 @@ categories = ["ciphers", "command-line-utilities"]
 license = "MIT"
 
 [dependencies]
-structopt = "0.3.26"
-cipha = { path= "../cipha"}
-assert_cmd = "2.0.16"
 
-[[bin]]
-name = "cipha-cli"
-path = "src/main.rs"
+
+[lib]
+path = "src/lib.rs"

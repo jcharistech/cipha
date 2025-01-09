@@ -21,7 +21,7 @@ cipha = "0.1.0"
 ## Usage
 The Function Based Approach
 ```rust
-use cipha_lib::rot13;
+use cipha::utils::rot13;
 
 fn main() {
   let input = "Hello, World!".to_string();
@@ -64,7 +64,7 @@ The ROT13 cipher is a special case of the Caesar cipher where the shift is alway
 
 #### Example
 ```rust
-use cipha_lib::rot13;
+use cipha::utils::rot13;
 let input = "Hello, World!".to_string();
 let output = rot13(input);
 assert_eq!(output, "Uryyb, Jbeyq!");
@@ -75,7 +75,7 @@ The Caesar cipher shifts each letter in the input message by a specified number 
 
 #### Example
 ```rust
-use cipha_lib::caesar_cipher;
+use cipha::utils::caesar_cipher;
 let input = "Hello, World!".to_string();
 let shift = 3;
 let output = caesar_cipher(input, shift);
@@ -87,7 +87,7 @@ This function reverses the input message.
 
 #### Example
 ```rust
-use cipha_lib::reverse_cipher;
+use cipha::utils::reverse_cipher;
 let input = "Hello, World!";
 let reversed = reverse_cipher(input);
 assert_eq!(reversed, "!dlroW ,olleH");
@@ -99,12 +99,12 @@ It is used to compute Gematria
 
 #### Example
 ```rust
-use cipha_lib::alpha2num;
+use cipha::utils::alpha2num;
 let input = "Hello, World!";
 let result = alpha2num(input);
 assert_eq!(result, "8 5 12 12 15 ,   23 15 18 12 4 !");
 
-use cipha_lib::num2alpha;
+use cipha::utils::num2alpha;
 let input = "8 5 12 12 15 , 23 15 18 12 4 !";
 let result = num2alpha(input);
 assert_eq!(result, "Hello, World!");
@@ -115,13 +115,13 @@ The Vigenère cipher uses a keyword to shift each letter in the input message.
 
 #### Example
 ```rust
-use cipha_lib::vigenere_cipher;
+use cipha::utils::vigenere_cipher;
 let plaintext = "ATTACKATDAWN".to_string();
 let key = "LEMON".to_string();
 let ciphertext = vigenere_cipher(&plaintext, &key);
 assert_eq!(ciphertext, "LXFOPVEFRNHR");
 
-use cipha_lib::vigenere_decipher;
+use cipha::utils::vigenere_decipher;
 let ciphertext = "LXFOPVEFRNHR".to_string();
 let key = "LEMON".to_string();
 let plaintext = vigenere_decipher(&ciphertext, &key);
@@ -133,12 +133,12 @@ This function encodes and decodes text into Morse code.
 
 #### Example
 ```rust
-use cipha_lib::morse_code_cipher;
+use cipha::utils::morse_code_cipher;
 let input = "HELLO".to_string();
 let morse_code = morse_code_cipher(&input);
 assert_eq!(morse_code, ".... . .-.. .-.. ---");
 
-use cipha_lib::morse_code_decipher;
+use cipha::utils::morse_code_decipher;
 let input = ".... . .-.. .-.. ---".to_string();
 let result = morse_code_decipher(&input);
 assert_eq!(result, "HELLO");
@@ -149,12 +149,12 @@ The Atbash cipher is a simple substitution cipher where each letter is replaced 
 
 #### Example
 ```rust
-use cipha_lib::atbash_cipher;
+use cipha::utils::atbash_cipher;
 let plaintext = "ATTACKATDAWN";
 let ciphertext = atbash_cipher(plaintext);
 assert_eq!(ciphertext, "ZGGZXPZGWZDM");
 
-use cipha_lib::atbash_decipher;
+use cipha::utils::atbash_decipher;
 let ciphertext = "ZGGZXPZGWZDM";
 let plaintext = atbash_decipher(&ciphertext);
 assert_eq!(plaintext, "ATTACKATDAWN");
@@ -165,13 +165,13 @@ This function encodes and decodes text using the Rail Fence cipher which is a tr
 
 #### Example
 ```rust
-use cipha_lib::rail_fence_cipher;
+use cipha::utils::rail_fence_cipher;
 let plaintext = "WEAREDISCOVEREDSAVEYOURSELF";
 let rails = 3;
 let ciphertext = rail_fence_cipher(plaintext, rails);
 assert_eq!(ciphertext, "WECRAOEERDSOEESVYUSLAIVDERF");
 
-use cipha_lib::rail_fence_decipher;
+use cipha::utils::rail_fence_decipher;
 let ciphertext = "WECRAOEERDSOEESVYUSLAIVDERF";
 let rails = 3;
 let plaintext = rail_fence_decipher(&ciphertext, rails);
