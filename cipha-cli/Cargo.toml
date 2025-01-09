@@ -1,0 +1,9 @@
+[package]
+name = "cipha-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+structopt = "0.3.26"
+cipha-lib = { path= "../cipha-lib"}
+assert_cmd = "2.0.16"
