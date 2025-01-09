@@ -1,6 +1,8 @@
 //! This is the main module for the cipha-lib crate.
 //! It contains various cipher and crypto functions.
 
+pub mod ciphers;
+
 use std::collections::HashMap;
 
 /// Applies the ROT13 cipher to the input message.

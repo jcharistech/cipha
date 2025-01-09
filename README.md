@@ -136,3 +136,53 @@ The `cipha-lib` crate provides a variety of cryptographic functions that can be 
 
 
 There is also a CLI for Cipha available here [cipha-cli](CLI.md).
+
+### Cipha-lib: Struct Based Approach
+```rust
+fn main() {
+    let r1 = Rot13Cipher::new();
+    let encrypted = r1.encipher("Some string");
+    let decrypted = r1.decipher(&encrypted);
+    println!("Encrypted: {}, Decrypted: {}", encrypted, decrypted);
+
+    let c1 = CaesarCipher::new(3);
+    let encrypted = c1.encipher("Some string");
+    let decrypted = c1.decipher(&encrypted);
+    println!("Encrypted: {}, Decrypted: {}", encrypted, decrypted);
+
+    let v1 = VigenereCipher::new("LEMON");
+    let encrypted = v1.encipher("ATTACKATDAWN");
+    let decrypted = v1.decipher(&encrypted);
+    println!("Encrypted: {}, Decrypted: {}", encrypted, decrypted);
+
+
+    let morse_code = MorseCode::new();
+    let input = "HELLO";
+    let encoded = morse_code.encode(input);
+    println!("Encoded: {}", encoded);
+
+    let decoded = morse_code.decode(&encoded);
+    println!("Decoded: {}", decoded);
+
+      let converter = AlphaNumConverter::new();
+    let input = "Hello, World!";
+    let result = converter.alpha_to_num(input);
+    println!("Alpha to Num: {}", result);
+
+    let input = "8 5 12 12 15 , 23 15 18 12 4 !";
+    let result = converter.num_to_alpha(input);
+    println!("Num to Alpha: {}", result);
+
+     let atbash = AtbashCipher::new();
+    let plaintext = "ATTACKATDAWN";
+    let ciphertext = atbash.encipher(plaintext);
+    println!("Encrypted: {}", ciphertext);
+
+    let decrypted_text = atbash.decipher(&ciphertext);
+    println!("Decrypted: {}", decrypted_text);
+}
+
+
+
+
+```
