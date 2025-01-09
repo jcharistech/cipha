@@ -1,6 +1,7 @@
 use structopt::StructOpt;
 use std::fs::File;
 use std::io::{Write, Read, stdout};
+extern crate cipha_lib; 
 use cipha_lib::{alpha2num, atbash_cipher, atbash_decipher, caesar_cipher, morse_code_cipher, morse_code_decipher, num2alpha, reverse_cipher, rot13, vigenere_cipher, vigenere_decipher};
 
 /// A simple CLI for ciphers and crypto.

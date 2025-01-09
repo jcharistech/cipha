@@ -6,3 +6,7 @@ authors = ["Jesse JCharis"]
 description = "CLI for classical ciphers"
 
 [dependencies]
+
+
+[lib]
+path = "src/lib.rs"

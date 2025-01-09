@@ -2,12 +2,62 @@
 A simple CLI and Package for Classical Ciphers and Cryptography in Rust
 
 ## Introduction
+`cipha` consist of two main part the `cipha-lib` and  `cipha-cli`.
+
+
+## Installation
+To install `cipha` you can do so via cargo
+
+```bash
+cargo add cipha
+```
+Or simply put the following in your Cargo.toml.
+
+```
+[dependencies]
+cipha = "0.1.0"
+```
+
+## Usage
+The Function Based Approach
+```rust
+use cipha_lib::rot13;
+
+fn main() {
+  let input = "Hello, World!".to_string();
+  let output = rot13(input);
+  assert_eq!(output, "Uryyb, Jbeyq!");
+}
+
+```
+
+Or via the Struct Based Approach
+```rust
+use cipha::ciphers::{Rot13Cipher};
+
+fn main() {
+    let r1 = Rot13Cipher::new();
+    let encrypted = r1.encipher("Some string");
+    let decrypted = r1.decipher(&encrypted);
+    println!("Encrypted: {}, Decrypted: {}", encrypted, decrypted);
+}
+```
+
+
 
 ## cipha-lib
 
-This crate provides a collection of cryptographic functions, including various ciphers and encoding schemes. It is designed to be easy to use and integrate into Rust projects.
+The `cipha-lib` crate provides a collection of cryptographic functions, including various ciphers and encoding schemes. It is designed to be easy to use and integrate into Rust projects.
 
-## Functions
+### Functions
+Below is a list of supported classical ciphers
++ rot13
++ caesar cipher
++ vigenere cipher
++ reverse
++ gematria
++ atbash
++ morse code
 
 ### ROT13 Cipher
 The ROT13 cipher is a special case of the Caesar cipher where the shift is always 13.
@@ -45,6 +95,7 @@ assert_eq!(reversed, "!dlroW ,olleH");
 
 ### Alpha to Num and Num to Alpha
 These functions convert alphabetic characters to their corresponding numerical values and vice versa.
+It is used to compute Gematria
 
 #### Example
 ```rust
@@ -110,7 +161,7 @@ assert_eq!(plaintext, "ATTACKATDAWN");
 ```
 
 ### Rail Fence Cipher
-This function encodes and decodes text using the Rail Fence cipher.
+This function encodes and decodes text using the Rail Fence cipher which is a transposition cipher.
 
 #### Example
 ```rust
@@ -128,17 +179,17 @@ assert_eq!(plaintext, "WEAREDISCOVEREDSAVEYOURSELF");
 ```
 
 
-## Conclusion
+### Conclusion
 
 The `cipha-lib` crate provides a variety of cryptographic functions that can be easily integrated into your Rust projects. By following the examples and testing your code, you can ensure that your cryptographic operations are accurate and reliable.
 
 
-
-
-There is also a CLI for Cipha available here [cipha-cli](CLI.md).
-
 ### Cipha-lib: Struct Based Approach
++ We can also use the ciphers using a struct based approach inspired by the cipers package [ciphers.rs](https://crates.io/crates/ciphers)
+
 ```rust
+use cipha::ciphers::*;
+
 fn main() {
     let r1 = Rot13Cipher::new();
     let encrypted = r1.encipher("Some string");
@@ -183,6 +234,7 @@ fn main() {
 }
 
 
-
-
 ```
+
+## Cipha-cli
+The `cipha-cli`  provides an interface to use all the ciphers from the command line. You can find more here [cipha-cli](CLI.md).

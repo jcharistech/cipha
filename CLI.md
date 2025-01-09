@@ -6,10 +6,16 @@ The `cipha-cli` is a command-line interface (CLI) tool designed to encode and de
 
 ### Installation
 
-To use the `cipha-cli`, you need to have Rust and the `cargo` package manager installed. Here’s how you can build and install the CLI:
+To use the `cipha-cli`, you need to have Rust and the `cargo` package manager installed. It comes with the cipha crate
+hence you can use
+```bash
+cargo add cipha
+```
+
+Here’s how you can build and install the CLI:
 
 ```bash
-git clone https://github.com/your-repo/cipha-cli.git
+git clone https://github.com/jcharistech/cipha.git
 cd cipha-cli
 cargo build --release
 cargo install --path .
@@ -17,7 +23,8 @@ cargo install --path .
 
 ### Usage
 
-The `cipha-cli` supports two main subcommands: `encode` and `decode`. Here is a detailed overview of the available options and how to use them.
+The `cipha-cli` supports two main subcommands: `encode` and `decode`. 
+You can get a detailed overview of the available options and how to use them below.
 
 #### Encode Subcommand
 
@@ -138,13 +145,6 @@ By default, the output is written to `stdout`. You can specify an output file us
 cipha encode --cipher rot13 --message "Hello, World!" --output-file output.txt
 ```
 
-### Testing
-
-To ensure the CLI functions correctly, you can run unit tests using the following command:
-
-```bash
-cargo test
-```
 
 This will execute the tests defined in the `tests` module of the `cipha-cli` crate.
 
