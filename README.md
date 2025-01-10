@@ -1,6 +1,11 @@
 # cipha
 A simple CLI and Package for Classical Ciphers and Cryptography in Rust
 
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://jcharistech.github.io/cipha/cipha/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://jcharistech.github.io/cipha/cipha/)
+[![](https://img.shields.io/crates/v/cipha.svg)](https://crates.io/crates/cipha)
+
+
 ## Introduction
 `cipha` consist of two main part the `cipha` and  `cipha-cli`.
 
