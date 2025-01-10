@@ -535,7 +535,15 @@
 <a href="#534" id="534">534</a>
 <a href="#535" id="535">535</a>
 <a href="#536" id="536">536</a>
-<a href="#537" id="537">537</a></pre></div><pre class="rust"><code><span class="doccomment">//! # Cipha
+<a href="#537" id="537">537</a>
+<a href="#538" id="538">538</a>
+<a href="#539" id="539">539</a>
+<a href="#540" id="540">540</a>
+<a href="#541" id="541">541</a>
+<a href="#542" id="542">542</a>
+<a href="#543" id="543">543</a>
+<a href="#544" id="544">544</a>
+<a href="#545" id="545">545</a></pre></div><pre class="rust"><code><span class="doccomment">//! # Cipha
 //! 
 //! Cipha is a simple CLI and Package for classical Ciphers and Cryptography in Rust
 //! 
@@ -548,6 +556,7 @@
 //! [dependencies]
 //! cipha = "0.1.0"
 //! ```
+//! Or use `cargo add cipha`
 //! 
 //! ## Usage
 //! E.g. using the Functional Approach.
@@ -562,8 +571,7 @@
 //!
 //!```
 //!
-//! ## Usage
-//! E.g. using the Struct Based Approach.
+//! #### Using the Struct Based Approach.
 //! ```rust
 //!use cipha::ciphers::{Rot13Cipher};
 //!
@@ -888,6 +896,14 @@
 ///
 /// # Returns
 /// - The encrypted ciphertext.
+/// # Examples
+///
+/// ```rust
+/// use cipha::utils::atbash_cipher;
+/// let input = "ATTACKATDAWN".to_string();
+/// let atbash = atbash_cipher(&amp;input);
+/// assert_eq!(atbash, "ZGGZXPZGWZDM");
+/// ```
 </span><span class="kw">pub fn </span>atbash_cipher(plaintext: <span class="kw-2">&amp;</span>str) -&gt; String {
     plaintext.chars().map(|c| <span class="kw">match </span>c {
             <span class="string">'a'</span>..=<span class="string">'z' </span>=&gt; (<span class="string">'a' </span><span class="kw">as </span>u8 + <span class="number">25 </span>- (c <span class="kw">as </span>u8 - <span class="string">'a' </span><span class="kw">as </span>u8)) <span class="kw">as </span>char,

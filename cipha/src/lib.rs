@@ -26,8 +26,7 @@
 //!
 //!```
 //!
-//! ## Usage
-//! E.g. using the Struct Based Approach.
+//! #### Using the Struct Based Approach.
 //! ```rust
 //!use cipha::ciphers::{Rot13Cipher};
 //!
@@ -352,6 +351,14 @@ pub fn morse_code_decipher(code: &str) -> String {
 ///
 /// # Returns
 /// - The encrypted ciphertext.
+/// # Examples
+///
+/// ```rust
+/// use cipha::utils::atbash_cipher;
+/// let input = "ATTACKATDAWN".to_string();
+/// let atbash = atbash_cipher(&input);
+/// assert_eq!(atbash, "ZGGZXPZGWZDM");
+/// ```
 pub fn atbash_cipher(plaintext: &str) -> String {
     plaintext.chars().map(|c| match c {
             'a'..='z' => ('a' as u8 + 25 - (c as u8 - 'a' as u8)) as char,

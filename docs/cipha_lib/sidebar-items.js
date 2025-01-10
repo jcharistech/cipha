@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["alpha2num","atbash_cipher","atbash_decipher","caesar_cipher","create_morse_code_map","create_reverse_morse_code_map","morse_code_cipher","morse_code_decipher","num2alpha","rail_fence_cipher","rail_fence_decipher","reverse_cipher","rot13","vigenere_cipher","vigenere_decipher"],"mod":["ciphers"]};

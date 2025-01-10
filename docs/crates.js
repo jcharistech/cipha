@@ -1,2 +1,2 @@
-window.ALL_CRATES = ["cipha_cli","cipha_lib"];
-//{"start":21,"fragment_lengths":[11,12]}
+window.ALL_CRATES = ["cipha","cipha_cli"];
+//{"start":21,"fragment_lengths":[7,12]}

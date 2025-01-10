@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Cipha"><title>cipha - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../static.files/rustdoc-b0742ba02757f159.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="cipha" data-themes="" data-resource-suffix="" data-rustdoc-version="1.83.0 (90b35a623 2024-11-26)" data-channel="1.83.0" data-search-js="search-f0d225181b97f9a4.js" data-settings-js="settings-805db61a62df4bd2.js" ><script src="../static.files/storage-1d39b6787ed640ff.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-f070b9041d14864c.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-0111fcff984fae8f.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../cipha/index.html">cipha</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#cipha" title="Cipha">Cipha</a><ul><li><a href="#installation" title="Installation">Installation</a></li><li><a href="#usage" title="Usage">Usage</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>cipha</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/cipha/lib.rs.html#1-545">source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="cipha"><a class="doc-anchor" href="#cipha">§</a>Cipha</h2>
+<p>Cipha is a simple CLI and Package for classical Ciphers and Cryptography in Rust</p>
+<p><code>cipha</code> consist of two main part the <code>cipha</code> and  <code>cipha-cli</code>.</p>
+<h3 id="installation"><a class="doc-anchor" href="#installation">§</a>Installation</h3>
+<p>Simply put the following in your <strong>Cargo.toml</strong>.</p>
+<div class="example-wrap"><pre class="language-toml"><code>[dependencies]
+cipha = &quot;0.1.0&quot;</code></pre></div>
+<p>Or use <code>cargo add cipha</code></p>
+<h3 id="usage"><a class="doc-anchor" href="#usage">§</a>Usage</h3>
+<p>E.g. using the Functional Approach.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>cipha::utils::rot13;
+
+<span class="kw">fn </span>main() {
+ <span class="kw">let </span>input = <span class="string">"Hello, World!"</span>.to_string();
+ <span class="kw">let </span>output = rot13(input);
+ <span class="macro">assert_eq!</span>(output, <span class="string">"Uryyb, Jbeyq!"</span>);
+}
+</code></pre></div>
+<h5 id="using-the-struct-based-approach"><a class="doc-anchor" href="#using-the-struct-based-approach">§</a>Using the Struct Based Approach.</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>cipha::ciphers::{Rot13Cipher};
+
+<span class="kw">fn </span>main() {
+ <span class="kw">let </span>r1 = Rot13Cipher::new();
+ <span class="kw">let </span>encrypted = r1.encipher(<span class="string">"Some string"</span>);
+ <span class="kw">let </span>decrypted = r1.decipher(<span class="kw-2">&amp;</span>encrypted);
+ <span class="macro">println!</span>(<span class="string">"Encrypted: {}, Decrypted: {}"</span>, encrypted, decrypted);
+}
+</code></pre></div>
+</div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="ciphers/index.html" title="mod cipha::ciphers">ciphers</a></div></li><li><div class="item-name"><a class="mod" href="utils/index.html" title="mod cipha::utils">utils</a></div></li></ul></section></div></main></body></html>

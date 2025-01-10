@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":["AlphaNumConverter","AtbashCipher","CaesarCipher","MorseCode","Rot13Cipher","VigenereCipher"]};
