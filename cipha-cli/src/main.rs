@@ -1,14 +1,31 @@
+//! # cipha-cli
+//!
+//! `cipha-cli` is a CLI that supports various classifical ciphers such as ROT13, Caesar, Vigenere, Gematria and more.
+//! It is an interface to the `cipha` library or crate.
+//! ### Usage
+//! ```bash
+//! cipha-cli encode --cipher rot13 --message "Hello, World!"
+//! cipha-cli encode --cipher caesar --message "Hello, World!" --shift 3
+//! ```
+//!
+
 use structopt::StructOpt;
 use std::fs::File;
 use std::io::{Write, Read, stdout};
-use cipha_lib::{alpha2num, atbash_cipher, atbash_decipher, caesar_cipher, morse_code_cipher, morse_code_decipher, num2alpha, reverse_cipher, rot13, vigenere_cipher, vigenere_decipher};
+extern crate cipha; 
+use cipha::utils::{alpha2num, atbash_cipher, atbash_decipher, caesar_cipher, morse_code_cipher, morse_code_decipher, num2alpha, reverse_cipher, rot13, vigenere_cipher, vigenere_decipher};
 
-/// A simple CLI for ciphers and crypto.
+/// A simple CLI for ciphers and cryptography.
 ///
 /// This CLI supports various ciphers such as ROT13, Caesar, Vigenere, and more.
 /// It can encode or decode messages using these ciphers.
+/// ### Example Usage
+/// ```bash
+/// cipha-cli encode --cipher rot13 --message "Hello, World!"
+/// cipha-cli encode --cipher caesar --message "Hello, World!" --shift 3
+/// ```
 #[derive(Debug, StructOpt)]
-#[structopt(name = "cipha", about = "A simple CLI for ciphers and crypto")]
+#[structopt(name = "cipha-cli", about = "A simple CLI for ciphers and crypto")]
 struct Cli {
     /// The subcommand to execute.
     #[structopt(subcommand)]
