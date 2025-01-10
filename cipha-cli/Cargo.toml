@@ -13,7 +13,7 @@ license = "MIT"
 
 [dependencies]
 structopt = "0.3.26"
-cipha = { path= "../cipha"}
+cipha = { path= "../cipha", version = "*"}
 assert_cmd = "2.0.16"
 
 [[bin]]
