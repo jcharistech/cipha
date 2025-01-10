@@ -1,7 +1,47 @@
-//! This is the main module for the cipha-lib crate.
-//! It contains various cipher and crypto functions.
+//! # Cipha
+//! 
+//! Cipha is a simple CLI and Package for classical Ciphers and Cryptography in Rust
+//! 
+//! `cipha` consist of two main part the `cipha` and  `cipha-cli`.
+//! 
+//! ## Installation
+//! Simply put the following in your **Cargo.toml**.
+//! 
+//! ```toml
+//! [dependencies]
+//! cipha = "0.1.0"
+//! ```
+//! Or use `cargo add cipha`
+//! 
+//! ## Usage
+//! E.g. using the Functional Approach.
+//! ```rust
+//!use cipha::utils::rot13;
+//!
+//!fn main() {
+//!  let input = "Hello, World!".to_string();
+//!  let output = rot13(input);
+//!  assert_eq!(output, "Uryyb, Jbeyq!");
+//!}
+//!
+//!```
+//!
+//! ## Usage
+//! E.g. using the Struct Based Approach.
+//! ```rust
+//!use cipha::ciphers::{Rot13Cipher};
+//!
+//!fn main() {
+//!  let r1 = Rot13Cipher::new();
+//!  let encrypted = r1.encipher("Some string");
+//!  let decrypted = r1.decipher(&encrypted);
+//!  println!("Encrypted: {}, Decrypted: {}", encrypted, decrypted);
+//!}
+//!
+//!```
 
 
+// It contains various cipher and crypto functions.
 
 pub mod ciphers;
 
