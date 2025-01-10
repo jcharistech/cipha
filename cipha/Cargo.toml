@@ -8,7 +8,7 @@ readme = "README.md"
 homepage = "https://jcharistech.github.io/cipha/cipha/"
 repository = "https://github.com/jcharistech/cipha"
 keywords = ["ciphers", "cryptography", "classical-ciphers", "cipha"]
-categories = ["ciphers", "command-line-utilities"]
+categories = ["cryptography", "command-line-interface", "encoding"]
 license = "MIT"
 
 [dependencies]
