@@ -1,0 +1,157 @@
+# cipha-cli
+A simple CLI and Package for Classical Ciphers and Cryptography in Rust
+
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://jcharistech.github.io/cipha/cipha/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://jcharistech.github.io/cipha/cipha/)
+[![](https://img.shields.io/crates/v/cipha-cli.svg)](https://crates.io/crates/cipha-cli)
+
+### Introduction
+
+The `cipha-cli` is a command-line interface (CLI) tool designed to encode and decode messages using various cryptographic ciphers. This tool leverages the `cipha` crate, which provides implementations of several popular ciphers.
+
+### Installation
+
+To use the `cipha-cli`, you need to have Rust and the `cargo` package manager installed. It comes with the cipha crate
+hence you can use
+```bash
+cargo install cipha-cli
+```
+
+Here’s how you can build and install the CLI:
+
+```bash
+git clone https://github.com/jcharistech/cipha-cli.git
+cd cipha-cli
+cargo build --release
+cargo install --path .
+```
+
+### Usage
+
+The `cipha-cli` supports two main subcommands: `encode` and `decode`. 
+You can get a detailed overview of the available options and how to use them below.
+
+#### Encode Subcommand
+
+```bash
+cipha-cli encode --help
+```
+
+
+### Options
+
+- `--cipher`: The cipher to use (e.g., rot13, caesar, reverse, gematria, vigenere, morse, atbash).
+- `--message`: The message to encode.
+- `--file`: Read the message from a file.
+- `--shift`: Shift value for Caesar cipher (default: 3).
+- `--key`: Key to encrypt by.
+- `--output-file`: Output to a file instead of stdout.
+
+
+#### Example Usage for Encode
+
+```bash
+cipha-cli encode --cipher rot13 --message "Hello, World!"
+cipha-cli encode --cipher caesar --message "Hello, World!" --shift 3
+cipha-cli encode --cipher vigenere --message "Hello, World!" --key "LEMON"
+cipha-cli encode --cipher morse --message "Hello, World!"
+cipha-cli encode --cipher atbash --message "Hello, World!"
+cipha-cli encode --cipher gematria --message "Hello, World!"
+cipha-cli encode --cipher reverse --message "Hello, World!"
+```
+
+#### Decode Subcommand
+
+```bash
+cipha-cli decode --help
+```
+
+
+#### Options
+
+- `--cipher`: The cipher to use (e.g., rot13, caesar, reverse, gematria, vigenere, morse, atbash).
+- `--message`: The message to decode.
+- `--file`: Read the message from a file.
+- `--shift`: Shift value for Caesar cipher (default: 3).
+- `--key`: Key to decrypt by.
+- `--output-file`: Output to a file instead of stdout.
+
+
+#### Example Usage for Decode
+
+```bash
+cipha-cli decode --cipher rot13 --message "Uryyb, Jbeyq!"
+cipha-cli decode --cipher caesar --message "Khoor, Zruog!" --shift 3
+cipha-cli decode --cipher vigenere --message "LXFOPVEFRNHR" --key "LEMON"
+cipha-cli decode --cipher morse --message ".... . .-.. .-.. ---"
+cipha-cli decode --cipher atbash --message "ZGGZXPZGWZDM"
+cipha-cli decode --cipher gematria --message "8 5 12 12 15 ,   23 15 18 12 4 !"
+cipha-cli decode --cipher reverse --message "!dlroW ,olleH"
+```
+
+### Supported Ciphers
+
+- **ROT13**: A simple substitution cipher where each letter is shifted by 13 places.
+  ```bash
+  cipha-cli encode --cipher rot13 --message "Hello, World!"
+  cipha-cli decode --cipher rot13 --message "Uryyb, Jbeyq!"
+  ```
+
+- **Caesar**: A substitution cipher where each letter is shifted by a specified number of places.
+  ```bash
+  cipha-cli encode --cipher caesar --message "Hello, World!" --shift 3
+  cipha-cli decode --cipher caesar --message "Khoor, Zruog!" --shift 3
+  ```
+
+- **Reverse**: Reverses the input message.
+  ```bash
+  cipha-cli encode --cipher reverse --message "Hello, World!"
+  cipha-cli decode --cipher reverse --message "!dlroW ,olleH"
+  ```
+
+- **Gematria**: Converts alphabetic characters to their corresponding numerical values and vice versa.
+  ```bash
+  cipha-cli encode --cipher gematria --message "Hello, World!"
+  cipha-cli decode --cipher gematria --message "8 5 12 12 15 ,   23 15 18 12 4 !"
+  ```
+
+- **Vigenère**: A polyalphabetic substitution cipher that uses a keyword to shift each letter.
+  ```bash
+  cipha-cli encode --cipher vigenere --message "Hello, World!" --key "LEMON"
+  cipha-cli decode --cipher vigenere --message "LXFOPVEFRNHR" --key "LEMON"
+  ```
+
+- **Morse**: Encodes and decodes messages into Morse code.
+  ```bash
+  cipha-cli encode --cipher morse --message "Hello, World!"
+  cipha-cli decode --cipher morse --message ".... . .-.. .-.. ---"
+  ```
+
+- **Atbash**: A simple substitution cipher where each letter is replaced by its corresponding letter at the opposite end of the alphabet.
+  ```bash
+  cipha-cli encode --cipher atbash --message "Hello, World!"
+  cipha-cli decode --cipher atbash --message "ZGGZXPZGWZDM"
+  ```
+
+### Retrieving Messages
+
+The CLI can retrieve the message to be encoded or decoded from either a command-line argument (`--message`) or a file (`--file`).
+
+```bash
+cipha-cli encode --cipher rot13 --message "Hello, World!"
+cipha-cli encode --cipher rot13 --file path/to/message.txt
+```
+
+### Output
+
+By default, the output is written to `stdout`. You can specify an output file using the `--output-file` option.
+
+```bash
+cipha-cli encode --cipher rot13 --message "Hello, World!" --output-file output.txt
+```
+
+
+
+## Conclusion
+
+The `cipha-cli` provides a versatile and easy-to-use interface for encoding and decoding messages using various cryptographic ciphers. By following the examples and using the provided options, you can effectively utilize this tool in your cryptographic tasks.
