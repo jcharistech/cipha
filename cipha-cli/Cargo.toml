@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Jesse JCharis"]
 description = "CLI for classical ciphers"
 readme = "README.md"
-homepage = "https://github.com/jcharistech/cipha"
+homepage = "https://jcharistech.github.io/cipha/cipha/"
 repository = "https://github.com/jcharistech/cipha"
 keywords = ["ciphers", "cryptography", "classical-ciphers", "cipha"]
 categories = ["ciphers", "command-line-utilities"]
@@ -20,3 +20,9 @@ assert_cmd = "2.0.16"
 name = "cipha-cli"
 path = "src/main.rs"
 # doc = false  # Disable documentation for this binary
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
